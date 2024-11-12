@@ -1,0 +1,10 @@
+displayName = Eternity Mod
+author = Vaema and the Developer Team
+version = 1.0.0.0
+
+hideCode = false
+hideResources = true
+includeSource = false
+includePDB = true
+
+buildIgnore = .vs\*, Properties\*, *.csproj, *.user, obj\*, bin\*, *.config, .git\*, .github\*, LICENSE, README.md, .editorconfig, .gitignore, .gitattributes
