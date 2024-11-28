@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Start tml server": {
+      "commandName": "Project",
+      "commandLineArgs": "\"$(tMLSteamPath)$(tMLPath)\"",
+      "workingDirectory": "$(tMLSteamPath)"
+    },
+    "Start tml server skip select": {
+      "commandName": "Project",
+      "commandLineArgs": "\"$(tMLSteamPath)$(tMLPath)\" -ANDRESERVERWORLD \"Mod Testing\"",
+      "workingDirectory": "$(tMLSteamPath)"
+    }
+  }
+}
