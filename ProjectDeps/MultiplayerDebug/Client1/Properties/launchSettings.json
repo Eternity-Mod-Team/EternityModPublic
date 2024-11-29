@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Terraria client join localhost 1": {
+      "commandName": "Executable",
+      "executablePath": "dotnet",
+      "commandLineArgs": "$(tMLPath) -join 127.0.0.1 -plr \"Mod Testing\" -logfile client1",
+      "workingDirectory": "$(tMLSteamPath)"
+    }
+  }
+}

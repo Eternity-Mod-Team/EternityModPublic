@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\..\..\..\tModLoader.targets" />
+	
+	<PropertyGroup>
+		<AssemblyName>MultDebugTestMod_</AssemblyName>
+		<TargetFramework>net8.0</TargetFramework>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+		<LangVersion>10</LangVersion>
+		<DefineConstants>$(DefineConstants);BUILDINGFROMCSPROJ2</DefineConstants>
+		<GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+		<GenerateTargetFrameworkAttribute>False</GenerateTargetFrameworkAttribute>
+		<OutDir Condition="$(OutDir) != ''">$(OutDir)h/</OutDir>
+		<ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<Compile Remove="**/*.*" />
+		<None Remove="**/*.*" />
+		<AdditionalFiles Remove="**/*.*" />
+		<None Include="Properties/launchSettings.json" />
+		<Compile Include="AssemblyInfo.cs" />
+	</ItemGroup>
+	
+	<Target Name="BuildMod" />
+</Project>

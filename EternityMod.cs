@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Terraria.ModLoader;
 
 namespace EternityMod
@@ -6,9 +7,15 @@ namespace EternityMod
 	{
 		internal static EternityMod Instance;
 
+        public EternityMod()
+        {
+            Debug.Assert(Instance == null);
+            Instance = this;
+        }
+
         public override void Load()
         {
-            Instance = this;
+
         }
 
         public override void Unload()

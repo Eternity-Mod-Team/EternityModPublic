@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using System;
 using System.IO;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -117,29 +118,30 @@ namespace EternityMod.NPCs.Bosses.Moomag
 
             void CreateSegments()
             {
-                if (Main.netMode == NetmodeID.MultiplayerClient)
-                    return;
+                throw new NotImplementedException();
+                //if (Main.netMode == NetmodeID.MultiplayerClient)
+                //    return;
 
-                int previousSegmentIndex = NPC.whoAmI;
-                for (int i = 0; i < BodySegmentCount; i++)
-                {
-                    int newSegment;
-                    if (i is >= 0 and < (int)(BodySegmentCount - 1f))
-                    {
-                        if (i % 2 == 0)
-                            newSegment = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<MoomagBodyAlt>(), NPC.whoAmI);
-                        else
-                            newSegment = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<MoomagBody>(), NPC.whoAmI);
-                    }
-                    else
-                        newSegment = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<MoomagTail>(), NPC.whoAmI);
+                //int previousSegmentIndex = NPC.whoAmI;
+                //for (int i = 0; i < BodySegmentCount; i++)
+                //{
+                //    int newSegment;
+                //    if (i is >= 0 and < (int)(BodySegmentCount - 1f))
+                //    {
+                //        if (i % 2 == 0)
+                //            newSegment = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<MoomagBodyAlt>(), NPC.whoAmI);
+                //        else
+                //            newSegment = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<MoomagBody>(), NPC.whoAmI);
+                //    }
+                //    else
+                //        newSegment = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<MoomagTail>(), NPC.whoAmI);
 
-                    Main.npc[newSegment].realLife = NPC.whoAmI;
-                    Main.npc[newSegment].ai[1] = previousSegmentIndex;
-                    Main.npc[previousSegmentIndex].ai[0] = newSegment;
-                    NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, newSegment);
-                    previousSegmentIndex = newSegment;
-                }
+                //    Main.npc[newSegment].realLife = NPC.whoAmI;
+                //    Main.npc[newSegment].ai[1] = previousSegmentIndex;
+                //    Main.npc[previousSegmentIndex].ai[0] = newSegment;
+                //    NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, newSegment);
+                //    previousSegmentIndex = newSegment;
+                //}
             }
         }
     }
