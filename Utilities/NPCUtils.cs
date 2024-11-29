@@ -1,6 +1,8 @@
 ﻿using EternityMod.Events;
 using EternityMod.Systems;
 using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace EternityMod
 {
@@ -15,6 +17,15 @@ namespace EternityMod
                 npc.lifeMax = bloodbath.Value;
             else if (death.HasValue && DifficultyModeSystem.DeathMode)
                 npc.lifeMax = death.Value;
+        }
+
+        public static void HideFromBestiary(this ModNPC n)
+        {
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
+            {
+                Hide = true
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset.Add(n.Type, value);
         }
     }
 }

@@ -1,10 +1,13 @@
 displayName = Eternity Mod
 author = Vaema and the Developer Team
 version = 1.0.0.0
+homepage = https://discord.gg/4m4Xk6UeGW
 
 hideCode = false
 hideResources = true
 includeSource = false
 includePDB = true
+
+modReferences = Luminance, SubworldLibrary
 
 buildIgnore = .vs\*, Properties\*, *.csproj, *.user, obj\*, bin\*, *.config, .git\*, .github\*, LICENSE, README.md, .editorconfig, .gitignore, .gitattributes
