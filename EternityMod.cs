@@ -1,9 +1,9 @@
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using Terraria.ModLoader;
 
 namespace EternityMod
 {
-	public class EternityMod : Mod
+    public class EternityMod : Mod
 	{
 		internal static EternityMod Instance;
 

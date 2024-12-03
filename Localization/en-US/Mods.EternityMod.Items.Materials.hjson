@@ -1,0 +1,9 @@
+﻿Auracris: {
+    DisplayName: Auracris
+    Tooltip: A crystallized substance
+}
+
+DuskFlame: {
+    DisplayName: Dusk Ember
+    Tooltip: The ignited essence of twilight
+}

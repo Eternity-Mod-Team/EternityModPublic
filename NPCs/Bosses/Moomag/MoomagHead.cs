@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using EternityMod.Events;
+using EternityMod.Systems;
+using Microsoft.Xna.Framework;
 using System;
 using System.IO;
 using Terraria;
@@ -44,6 +46,7 @@ namespace EternityMod.NPCs.Bosses.Moomag
 
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
+            Music = MusicID.Boss2;
 
             if (Main.getGoodWorld)
                 NPC.scale *= 1.25f;
@@ -75,10 +78,18 @@ namespace EternityMod.NPCs.Bosses.Moomag
 
         public override void AI()
         {
+            bool bossRush = BossRushEvent.Active;
+            bool expert = Main.expertMode || bossRush;
+            bool master = Main.masterMode || bossRush;
+            bool death = DifficultyModeSystem.DeathMode || bossRush;
+            bool bloodbath = DifficultyModeSystem.NightmareMode || bossRush;
+            bool nightmare = DifficultyModeSystem.NightmareMode || bossRush;
+
             float lifeRatio = NPC.life / (float)NPC.lifeMax;
             bool phase2 = lifeRatio <= 0.75f;
             bool phase3 = lifeRatio <= 0.5f;
             bool phase4 = lifeRatio <= 0.25f;
+
             Player target = Main.player[NPC.target];
 
             bool initialized = false;
@@ -91,9 +102,10 @@ namespace EternityMod.NPCs.Bosses.Moomag
             }
 
             NPC.TargetClosest();
-            if (NPC.target < 0 || NPC.target >= Main.maxPlayers || target.dead || !target.active || !NPC.WithinRange(target.Center, 4500f))
+            if (NPC.target < 0 || NPC.target >= Main.maxPlayers || target.dead || !target.active || !NPC.WithinRange(target.Center, 4500f) || Main.dayTime)
             {
                 NPC.velocity.X *= 0.98f;
+                NPC.velocity.Y -= 1.5f;
 
                 if (NPC.timeLeft > 45)
                     NPC.timeLeft = 45;
@@ -104,16 +116,120 @@ namespace EternityMod.NPCs.Bosses.Moomag
                 return;
             }
 
-            switch ((int)State)
+            float speed = bloodbath ? 21f : 20.25f;
+            float turnSpeed = bloodbath ? 0.5f : 0.45f;
+            if (expert)
             {
-                case 0:
-                    SummonAnimation();
-                    break;
+                speed += speed * 0.2f * (1f - lifeRatio);
+                turnSpeed += turnSpeed * 0.2f * (1f - lifeRatio);
+            }
+            if (death)
+            {
+                speed += (bloodbath ? 0.05f : 0.04f) * (1f - lifeRatio);
+                turnSpeed += (bloodbath ? 0.1f : 0.08f) * (1f - lifeRatio);
+            }
+            if (Main.getGoodWorld)
+            {
+                speed *= 1.1f;
+                turnSpeed *= 1.2f;
             }
 
-            void SummonAnimation()
-            {
+            if (NPC.velocity.X < 0f)
+                NPC.spriteDirection = 1;
+            else if (NPC.velocity.X > 0f)
+                NPC.spriteDirection = -1;
 
+            float maxChaseSpeed = 25f;
+            if (expert)
+                maxChaseSpeed += maxChaseSpeed * 0.2f * (1f - lifeRatio);
+
+            Vector2 npcCenter = NPC.Center;
+            float playerX = target.Center.X;
+            float playerY = target.Center.Y;
+            playerX = (int)(playerX / 16f) * 16;
+            playerY = (int)(playerY / 16f) * 16;
+            npcCenter.X = (int)(npcCenter.X / 16f) * 16;
+            npcCenter.Y = (int)(npcCenter.Y / 16f) * 16;
+            playerX -= npcCenter.X;
+            playerY -= npcCenter.Y;
+            float targetDistance = (float)Math.Sqrt((double)(playerX * playerX + playerY * playerY));
+            targetDistance = (float)Math.Sqrt((double)(playerX * playerX + playerY * playerY));
+            float absolutePlayerX = Math.Abs(playerX);
+            float absolutePlayerY = Math.Abs(playerY);
+            float timeToReachTarget = maxChaseSpeed / targetDistance;
+            playerX *= timeToReachTarget;
+            playerY *= timeToReachTarget;
+
+            if (((NPC.velocity.X > 0f && playerX > 0f) || (NPC.velocity.X < 0f && playerX < 0f)) && ((NPC.velocity.Y > 0f && playerY > 0f) || (NPC.velocity.Y < 0f && playerY < 0f)))
+            {
+                if (NPC.velocity.X < playerX)
+                    NPC.velocity.X += turnSpeed;
+                else if (NPC.velocity.X > playerX)
+                    NPC.velocity.X -= turnSpeed;
+
+                if (NPC.velocity.Y < playerY)
+                    NPC.velocity.Y += turnSpeed;
+                else if (NPC.velocity.Y > playerY)
+                    NPC.velocity.Y -= turnSpeed;
+            }
+
+            if ((NPC.velocity.X > 0f && playerX > 0f) || (NPC.velocity.X < 0f && playerX < 0f) || (NPC.velocity.Y > 0f && playerY > 0f) || (NPC.velocity.Y < 0f && playerY < 0f))
+            {
+                if (NPC.velocity.X < playerX)
+                    NPC.velocity.X += speed;
+                else if (NPC.velocity.X > playerX)
+                    NPC.velocity.X -= speed;
+
+                if (NPC.velocity.Y < playerY)
+                    NPC.velocity.Y += speed;
+                else if (NPC.velocity.Y > playerY)
+                    NPC.velocity.Y -= speed;
+
+                if ((double)Math.Abs(playerY) < maxChaseSpeed * 0.2 && ((NPC.velocity.X > 0f && playerX < 0f) || (NPC.velocity.X < 0f && playerX > 0f)))
+                {
+                    if (NPC.velocity.Y > 0f)
+                        NPC.velocity.Y += speed * 2f;
+                    else
+                        NPC.velocity.Y -= speed * 2f;
+                }
+
+                if ((double)Math.Abs(playerX) < maxChaseSpeed * 0.2 && ((NPC.velocity.Y > 0f && playerY < 0f) || (NPC.velocity.Y < 0f && playerY > 0f)))
+                {
+                    if (NPC.velocity.X > 0f)
+                        NPC.velocity.X += speed * 2f;
+                    else
+                        NPC.velocity.X -= speed * 2f;
+                }
+            }
+            else if (absolutePlayerX > absolutePlayerY)
+            {
+                if (NPC.velocity.X < playerX)
+                    NPC.velocity.X += speed * 1.1f;
+                else if (NPC.velocity.X > playerX)
+                    NPC.velocity.X -= speed * 1.1f;
+
+                if ((double)(Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y)) < maxChaseSpeed * 0.5)
+                {
+                    if (NPC.velocity.Y > 0f)
+                        NPC.velocity.Y += speed;
+                    else
+                        NPC.velocity.Y -= speed;
+                }
+            }
+            else
+            {
+                if (NPC.velocity.Y < playerY)
+                    NPC.velocity.Y += speed * 1.1f;
+                else if (NPC.velocity.Y > playerY)
+                    NPC.velocity.Y -= speed * 1.1f;
+
+                if ((double)(Math.Abs(NPC.velocity.X) + Math.Abs(NPC.velocity.Y)) < maxChaseSpeed * 0.5)
+                {
+                    if (NPC.velocity.X > 0f)
+                        NPC.velocity.X += speed;
+                    else
+                        NPC.velocity.X -= speed;
+                }
             }
 
             void CreateSegments()
