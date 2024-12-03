@@ -1,5 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<Import Project="..\tModLoader.targets" />
+  <Import Project="..\tModLoader.targets" />
+
+  <ItemGroup>
+    <Reference Include="lib\*.dll"></Reference>
+    <Compile Remove="ProjectDeps/**/*.cs"/>
+    <None Include="ProjectDeps/**/*.cs"/>
+  </ItemGroup>
 
 </Project>
