@@ -8,4 +8,4 @@ hideResources = true
 includeSource = false
 includePDB = true
 
-buildIgnore = .vs\*, Properties\*, *.csproj, *.user, obj\*, bin\*, *.config, .git\*, .github\*, LICENSE, README.md, .editorconfig, .gitignore, .gitattributes
+buildIgnore = .vs\*, Properties\*, *.csproj, *.user, obj\*, bin\*, *.config, .git\*, .github\*, LICENSE.md, README.md, CONTRIBUTING.md, .editorconfig, .gitignore, .gitattributes

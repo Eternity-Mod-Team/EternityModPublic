@@ -1,1 +1,34 @@
-A description will be provided soon.
+The Eternity Mod is a content and overhaul mod for Terraria.
+It strives to add tons of new quality content, while also adding various vanilla tweaks and overhauls as well.
+The mod goes for a chaotic genre, so there are many challenges for you to encounter.
+
+Below is the scope for the demonstration beta release, which is entirely subject to change.
+This mod currently adds the following amount of content:
+- 3 bosses and 2 minibosses
+- 15+ enemies
+- 2 town NPCs
+- 1 biome
+- 1 event
+- 2 difficulty settings (work-in-progress)
+- 1 damage class and 1 subclass (work-in-progress)
+- 100+ items
+- 20+ weapons
+- 3 armor sets
+- 2 mounts
+- 20+ blocks and walls
+- 10+ pieces of furniture
+- 3 ores
+- Many recipes for vanilla items
+- Various mechanics and systems
+- Cross-compatibility for various mods
+
+Developers:
+- Vaema (Owner)
+- LolXD87 (Programmer)
+
+Special Thanks:
+- Re-Logic for creating Terraria.
+- The tModLoader Team for creating tModLoader.
+- Kerol for a major ton of the sprites that have been merged.
+- InsouciantGote for the mod's icon sprite.
+- The Calamity Team for various rendering code (permission granted by Ozzatron).

@@ -1,0 +1,48 @@
+EternityClientConfig: {
+	DisplayName: Client Config
+
+	Headers: {
+		Gameplay: General Gameplay Changes
+		Graphics: Graphic Changes
+		BaseBoosts: Base Stat Boosts
+	}
+
+	Afterimages: {
+		Label: "[i:SteampunkGoggles] Afterimages"
+		Tooltip:
+			'''
+			Enables rendering afterimages for Eternity NPCs, projectiles, and other entities.
+			Disable to improve performance.
+			'''
+	}
+
+	BossesStopWeather: {
+		Label: "[i:CalamityMod/TorrentialTear] Bosses Stop Weather"
+		Tooltip:
+			'''
+			When enabled, bosses will stop all rain and related weather when spawned.
+			Enable if you have performance issues during boss fights.
+			'''
+	}
+
+	BossHealthBoost: {
+		Label: "[i:LifeCrystal] Boss Health Boost Percentage"
+		Tooltip:
+			'''
+			Globally boosts the health of all bosses by the specified percentage.
+			This stacks with multiplayer boss health boosts.
+			Does not affect bosses that are already spawned.
+			'''
+	}
+
+	ParticleLimit: {
+		Label: "[i:FragmentStardust] Max Particle Limit"
+		Tooltip:
+			'''
+			Sets the maximum of particle effects that can exist at once.
+			Particles are separate from dusts and gores.
+			Turn down to improve performance.
+			[c/F05A5A:Turning this below 1000 may cause some things to not display correctly.]
+			'''
+	}
+}
