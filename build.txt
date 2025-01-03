@@ -1,5 +1,5 @@
 displayName = Eternity Mod
-author = Vaema and the Developer Team
+author = Vaema and the Eternity Team
 version = 1.0.0.0
 homepage = https://discord.gg/4m4Xk6UeGW
 
@@ -8,4 +8,4 @@ hideResources = true
 includeSource = false
 includePDB = true
 
-buildIgnore = .vs\*, Properties\*, *.csproj, *.user, obj\*, bin\*, *.config, .git\*, .github\*, LICENSE.md, README.md, CONTRIBUTING.md, .editorconfig, .gitignore, .gitattributes
+buildIgnore = .vs\*, *.csproj, *.user, *.md, obj\*, bin\*, lib\*, Properties\*, *.config, .git\*, .github\*, .editorconfig, .gitignore, .gitattributes
