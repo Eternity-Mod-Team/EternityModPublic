@@ -15,7 +15,5 @@ namespace EternityMod.Players
         }
 
         public override void ResetEffects() => ResetVariables();
-
-        public override void Initialize() => ResetVariables();
     }
 }

@@ -14,6 +14,12 @@ namespace EternityMod.Buffs.DamageOverTime
 
         public override void Update(Player player, ref int buffIndex) => player.Eternity().eCurse = true;
 
-        public override void Update(NPC npc, ref int buffIndex) => npc.Eternity().eCurse = true;
+        public override void Update(NPC npc, ref int buffIndex)
+        {
+            if (npc.Eternity().eCurse < npc.buffTime[buffIndex])
+                npc.Eternity().eCurse = npc.buffTime[buffIndex];
+            npc.DelBuff(buffIndex);
+            buffIndex--;
+        }
     }
 }

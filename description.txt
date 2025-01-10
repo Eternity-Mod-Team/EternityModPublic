@@ -23,30 +23,11 @@ This mod currently adds the following amount of content:
 - Cross-compatibility for various mods
 
 Developers:
-
-[c/8111A0:Owner]
-Vaema
-
-[c/BE1288:Lead Developers]
-Vaema
-
-[c/BD3C3C:Programmers]
-Vaema
-LolXD87
-
-[c/2852BD:Spriters/Artists]
-Vaema
-Reaper
-
-[c/28BDB1:Musicians]
-Orion
-
-[c/EB8604:Lore Writers]
-Vaema
+- Vaema (Owner)
 
 Special Thanks:
 - Re-Logic for creating Terraria.
 - The tModLoader Team for creating tModLoader.
 - Kerol for a major ton of the sprites that have been merged.
 - InsouciantGote for the mod's icon sprite.
-- The Calamity Team for various rendering code (permission granted by Ozzatron).
+- The Calamity Team for various code.

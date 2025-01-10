@@ -10,6 +10,10 @@ namespace EternityMod
 	{
 		internal static EternityMod Instance;
 
+        // This is the mod that contains all of Eternity's music.
+        internal Mod MusicMod = null;
+        internal bool MusicAvailable => MusicMod is not null;
+
         public EternityMod()
         {
             Debug.Assert(Instance == null);
@@ -18,6 +22,9 @@ namespace EternityMod
 
         public override void Load()
         {
+            MusicMod = null;
+            ModLoader.TryGetMod("EternityModMusic", out MusicMod);
+
             if (!Main.dedServ)
             {
                 GeneralParticleHandler.Load();
@@ -27,6 +34,8 @@ namespace EternityMod
         public override void Unload()
         {
             Instance = null;
+
+            MusicMod = null;
 
             if (!Main.dedServ)
             {

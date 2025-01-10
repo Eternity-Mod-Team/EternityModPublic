@@ -8,4 +8,6 @@ hideResources = true
 includeSource = false
 includePDB = true
 
-buildIgnore = .vs\*, *.csproj, *.user, *.md, obj\*, bin\*, lib\*, Properties\*, *.config, .git\*, .github\*, .editorconfig, .gitignore, .gitattributes
+modReferences = EternityModMusic
+
+buildIgnore = .vs\*, *.csproj, *.user, *.md, obj\*, bin\*, Properties\*, *.config, .git\*, .github\*, .editorconfig, .gitignore, .gitattributes
