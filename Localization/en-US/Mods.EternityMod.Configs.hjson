@@ -17,7 +17,7 @@ EternityClientConfig: {
 	}
 
 	BossesStopWeather: {
-		Label: "[i:CalamityMod/TorrentialTear] Bosses Stop Weather"
+		Label: "Bosses Stop Weather"
 		Tooltip:
 			'''
 			When enabled, bosses will stop all rain and related weather when spawned.
