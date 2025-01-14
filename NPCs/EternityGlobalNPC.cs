@@ -18,25 +18,25 @@ namespace EternityMod.NPCs
 
         public int KillTime { get; set; } = 0;
 
-        // AI variables
+        // AI variables.
         internal const int ExtraAIMod = 100;
         public float[] ExtraAI = new float[ExtraAIMod];
         internal bool[] UsedAI = new bool[ExtraAIMod];
         public int AITimer = 0;
 
-        // General behavior variables
+        // General behavior variables.
         public bool CurrentlyEnraged;
         public bool ShouldFallThroughPlatforms;
 
-        // Debuffs
+        // Debuffs.
         public int eCurse = 0;
 
-        // Stats
+        // Stats.
         public bool bossCanBeKnockedBack = false;
         public const int knockbackResistanceMin = 180;
         public int knockbackResistanceTimer = 0;
 
-        // Global whoAmI variables
+        // Global whoAmI variables.
         public static int Wyrmwood = -1;
         public static int Moomag = -1;
         #endregion

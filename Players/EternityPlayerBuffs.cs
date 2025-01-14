@@ -4,6 +4,9 @@ namespace EternityMod.Players
 {
     public partial class EternityPlayer : ModPlayer
     {
+        // Buffs
+        // ...
+
         // Debuffs
         public bool eCurse = false;
         public bool dInferno = false;
