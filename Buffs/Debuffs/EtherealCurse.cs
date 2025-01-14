@@ -1,7 +1,7 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace EternityMod.Buffs.DamageOverTime
+namespace EternityMod.Buffs.Debuffs
 {
     public class EtherealCurse : ModBuff
     {
