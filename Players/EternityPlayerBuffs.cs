@@ -4,17 +4,17 @@ namespace EternityMod.Players
 {
     public partial class EternityPlayer : ModPlayer
     {
-        // Buffs
+        // Buff variables.
         // ...
 
-        // Debuffs
-        public bool eCurse = false;
-        public bool dInferno = false;
+        // Debuff variables.
+        public bool EtherealCurse = false;
+        public bool DraconicInferno = false;
 
         internal void ResetVariables()
         {
-            eCurse = false;
-            dInferno = false;
+            EtherealCurse = false;
+            DraconicInferno = false;
         }
 
         public override void ResetEffects() => ResetVariables();

@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace EternityMod.Items.Weapons.Ranged
+namespace EternityMod.Items.Weapons.Ranged.Flamethrowers
 {
     public class EtherealFlamer : ModItem
     {

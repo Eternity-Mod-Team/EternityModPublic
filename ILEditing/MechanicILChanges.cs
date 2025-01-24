@@ -20,7 +20,7 @@ namespace EternityMod.ILEditing
             {
                 Main.spriteBatch.SetBlendState(BlendState.Additive);
 
-                // Draw Projectiles.
+                // Draw projectiles.
                 foreach (Projectile p in Main.ActiveProjectiles)
                 {
                     if (p.ModProjectile is IAdditiveDrawer d)

@@ -7,7 +7,6 @@ namespace EternityMod.NPCs
         private static readonly string[] TownCatNames =
         {
             "Felix",
-            "Nova",
             "Lilia"
         };
 
@@ -19,6 +18,7 @@ namespace EternityMod.NPCs
             "Sukuna",
             "Yuji",
             "Scarlet",
+            "Nova",
             "Vulona"
         };
 

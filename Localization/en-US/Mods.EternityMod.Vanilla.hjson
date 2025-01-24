@@ -1,0 +1,9 @@
+﻿// Vanilla town dialogue additions.
+
+GuideChat: {
+    MoonLordDefeated: Ever since the Moon Lord has been slain, I have noticed that Luna shines brighter. Is it the Lunarians' doing? Maybe you should check them out.
+    Hardmode1: The ancient spirits are scattering around, could this really be...? Well then, just be careful when exploring because you may encounter beings more powerful than ever before.
+    Hardmode2: The guardian of Hell has been slain, well done! However, terrors beyond comprehension are waiting for worthy beings like you, so be cautious.
+}
+
+NurseChat.HealNotAllowed: I cannot aid you right now!

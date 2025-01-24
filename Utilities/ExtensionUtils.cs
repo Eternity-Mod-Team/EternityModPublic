@@ -11,9 +11,9 @@ namespace EternityMod
 
         public static EternityPlayer Eternity(this Player player) => player.GetModPlayer<EternityPlayer>();
 
-        public static Vector2 TurnRight(this Vector2 vec) => new Vector2(-vec.Y, vec.X);
+        public static Vector2 TurnRight(this Vector2 vec) => new(-vec.Y, vec.X);
 
-        public static Vector2 TurnLeft(this Vector2 vec) => new Vector2(vec.Y, -vec.X);
+        public static Vector2 TurnLeft(this Vector2 vec) => new(vec.Y, -vec.X);
 
         public static bool ZoneForest(this Player player)
         {

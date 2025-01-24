@@ -1,6 +1,11 @@
 ﻿using System.Diagnostics;
+using System.IO;
 using EternityMod.Graphics.Particles;
+using EternityMod.Graphics.Primitives;
 using EternityMod.ModSupport;
+using EternityMod.Network;
+using EternityMod.Systems;
+using EternityMod.Systems.Overriding;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -14,6 +19,20 @@ namespace EternityMod
         internal Mod MusicMod = null;
         internal bool MusicAvailable => MusicMod is not null;
 
+        // Keep these in alphabetical order for better readability.
+        internal Mod AncientsAwakened = null;
+        internal Mod Calamity = null;
+        internal Mod FargosMutant = null;
+        internal Mod FargosSouls = null;
+        internal Mod PhaseIndicator = null;
+        internal Mod ShadowsOfAbaddon = null;
+        internal Mod Spirit = null;
+        internal Mod Thorium = null;
+        internal Mod Wikithis = null;
+
+        // If Death Mode is enabled at minimum, custom hostile NPCs will be modified in terms of their AIs.
+        public bool CanUseCustomAIs => DifficultyModeSystem.DeathMode;
+
         public EternityMod()
         {
             Debug.Assert(Instance == null);
@@ -22,12 +41,36 @@ namespace EternityMod
 
         public override void Load()
         {
-            MusicMod = null;
             ModLoader.TryGetMod("EternityModMusic", out MusicMod);
+            ModLoader.TryGetMod("AAMod", out AncientsAwakened);
+            ModLoader.TryGetMod("CalamityMod", out Calamity);
+            ModLoader.TryGetMod("Fargowiltas", out FargosMutant);
+            ModLoader.TryGetMod("FargowiltasSouls", out FargosSouls);
+            ModLoader.TryGetMod("PhaseIndicator", out PhaseIndicator);
+            ModLoader.TryGetMod("SacredTools", out ShadowsOfAbaddon);
+            ModLoader.TryGetMod("SpiritMod", out Spirit);
+            ModLoader.TryGetMod("ThoriumMod", out Thorium);
+            ModLoader.TryGetMod("Wikithis", out Wikithis);
+
+            // Buff the Drill Containment Unit.
+            Mount.drillPickPower = 225;
+
+            // Make graveyard biomes require more gravestones.
+            SceneMetrics.GraveyardTileMax = 60;
+            SceneMetrics.GraveyardTileMin = 40;
+            SceneMetrics.GraveyardTileThreshold = 52;
+
+            // Manually invoke the attribute constructors to get the marked methods cached.
+            foreach (var type in typeof(EternityMod).Assembly.GetTypes())
+            {
+                foreach (var method in type.GetMethods(EternityUtils.UniversalBindingFlags))
+                    method.GetCustomAttributes(false);
+            }
 
             if (!Main.dedServ)
             {
                 GeneralParticleHandler.Load();
+                PrimitiveRenderer.Initialize();
             }
         }
 
@@ -36,16 +79,36 @@ namespace EternityMod
             Instance = null;
 
             MusicMod = null;
+            AncientsAwakened = null;
+            Calamity = null;
+            FargosMutant = null;
+            FargosSouls = null;
+            ShadowsOfAbaddon = null;
+            Spirit = null;
+            Thorium = null;
+            Wikithis = null;
+
+            Mount.drillPickPower = 210;
+
+            SceneMetrics.GraveyardTileMax = 36;
+            SceneMetrics.GraveyardTileMin = 16;
+            SceneMetrics.GraveyardTileThreshold = 28;
 
             if (!Main.dedServ)
-            {
                 GeneralParticleHandler.Unload();
-            }
         }
 
         public override void PostSetupContent()
         {
+            NPCBehaviorOverride.LoadAll();
+            ProjectileBehaviorOverride.LoadAll();
+            NPCBehaviorOverride.LoadPhaseIndicators();
             WeakReferenceSupport.Setup();
         }
+
+        public override void HandlePacket(BinaryReader reader, int whoAmI) => PacketManager.ReceivePacket(reader);
+
+        // This function returns an available Eternity Mod Music track, or null if the music mod is not available.
+        public int? GetMusicFromMusicMod(string songFilename) => MusicAvailable ? MusicLoader.GetMusicSlot(MusicMod, "Sounds/Music/" + songFilename) : null;
     }
 }

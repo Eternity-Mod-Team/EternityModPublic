@@ -13,7 +13,7 @@ namespace EternityMod.Projectiles.Ranged
 
         public new string LocalizationCategory => "Projectiles.Ranged";
 
-        public override string Texture => "EternityMod/Items/Weapons/Ranged/EtherealFlamer";
+        public override string Texture => "EternityMod/Items/Weapons/Ranged/Flamethrowers/EtherealFlamer";
 
         public override void SetDefaults()
         {
