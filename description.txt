@@ -31,3 +31,8 @@ Special Thanks:
 - Kerol for a major ton of the sprites that have been merged.
 - InsouciantGote for the mod's icon sprite.
 - The Calamity Team for various code.
+- Lucille Karma for creating Luminance.
+- John Snail for creating Subworld Library.
+
+Dependencies:
+This mod requires Luminance and Subworld Library in order for it to function properly.

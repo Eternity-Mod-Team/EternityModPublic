@@ -69,7 +69,7 @@ namespace EternityMod.Graphics
 
         public delegate RenderTarget2D RenderTargetCreationCondition(int screenWidth, int screenHeight);
 
-        // For some reason, adding more arguments to this constructor causes really low end pcs to crash in FNA. I cannot figure out why, so do not use them.
+        // For some reason, adding more arguments to this constructor causes really low-end PCs to crash in FNA. I cannot figure out why, so do not use them.
         public static RenderTarget2D CreateScreenSizedTarget(int screenWidth, int screenHeight) => new(Main.instance.GraphicsDevice, screenWidth, screenHeight);
 
         public ManagedRenderTarget(bool shouldResetUponScreenResize, RenderTargetCreationCondition creationCondition, bool shouldAutoDispose = true)

@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.IO;
+﻿using System.IO;
 using EternityMod.Graphics.Particles;
 using EternityMod.Graphics.Primitives;
 using EternityMod.ModSupport;
@@ -7,6 +6,7 @@ using EternityMod.Network;
 using EternityMod.Systems;
 using EternityMod.Systems.Overriding;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace EternityMod
@@ -31,16 +31,12 @@ namespace EternityMod
         internal Mod Wikithis = null;
 
         // If Death Mode is enabled at minimum, custom hostile NPCs will be modified in terms of their AIs.
-        public bool CanUseCustomAIs => DifficultyModeSystem.DeathMode;
-
-        public EternityMod()
-        {
-            Debug.Assert(Instance == null);
-            Instance = this;
-        }
+        public static bool CanUseCustomAIs => DifficultyModeSystem.DeathMode;
 
         public override void Load()
         {
+            Instance = this;
+
             ModLoader.TryGetMod("EternityModMusic", out MusicMod);
             ModLoader.TryGetMod("AAMod", out AncientsAwakened);
             ModLoader.TryGetMod("CalamityMod", out Calamity);
@@ -67,7 +63,7 @@ namespace EternityMod
                     method.GetCustomAttributes(false);
             }
 
-            if (!Main.dedServ)
+            if (Main.netMode != NetmodeID.Server)
             {
                 GeneralParticleHandler.Load();
                 PrimitiveRenderer.Initialize();
@@ -94,7 +90,7 @@ namespace EternityMod
             SceneMetrics.GraveyardTileMin = 16;
             SceneMetrics.GraveyardTileThreshold = 28;
 
-            if (!Main.dedServ)
+            if (Main.netMode != NetmodeID.Server)
                 GeneralParticleHandler.Unload();
         }
 

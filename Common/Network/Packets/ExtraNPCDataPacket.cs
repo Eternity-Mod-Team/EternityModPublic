@@ -38,7 +38,7 @@ namespace EternityMod.Network.Packets
                 packet.Write(npc.Eternity().ExtraAI[i]);
             }
 
-            if (EternityMod.Instance.CanUseCustomAIs)
+            if (EternityMod.CanUseCustomAIs)
                 npc.BehaviorOverride<NPCBehaviorOverride>()?.SendExtraData(npc, packet);
         }
 
@@ -72,7 +72,7 @@ namespace EternityMod.Network.Packets
             if (!syncInformation.TryToApplyToNPC())
                 PendingNPCSyncs.Add(syncInformation);
 
-            if (EternityMod.Instance.CanUseCustomAIs)
+            if (EternityMod.CanUseCustomAIs)
                 Main.npc[npcIndex].BehaviorOverride<NPCBehaviorOverride>()?.ReceiveExtraData(Main.npc[npcIndex], reader);
         }
     }

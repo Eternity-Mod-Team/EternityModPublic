@@ -8,4 +8,7 @@ hideResources = true
 includeSource = false
 includePDB = true
 
-buildIgnore = .vs\*, *.csproj, *.user, *.md, obj\*, bin\*, Properties\*, *.config, .git\*, .github\*, .editorconfig, .gitignore, .gitattributes
+modReferences = Luminance, SubworldLibrary
+sortAfter = Luminance, SubworldLibrary
+
+buildIgnore = .vs\*, *.csproj, *.user, *.md, obj\*, bin\*, lib\*, Properties\*, *.config, .git\*, .github\*, .editorconfig, .gitignore, .gitattributes

@@ -2,4 +2,13 @@
 
   <Import Project="..\tModLoader.targets" />
 
+  <ItemGroup>
+    <Reference Include="Luminance">
+      <HintPath>lib\Luminance.dll</HintPath>
+    </Reference>
+    <Reference Include="SubworldLibrary">
+      <HintPath>lib\SubworldLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
