@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 
-namespace EternityMod.Graphics.Primitives
+namespace EternityMod.Core.Graphics.Primitives
 {
     /// <summary>
     /// Use to sucessfully render primitives with pixelation with an NPC or Projectile.

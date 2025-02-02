@@ -2,7 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace EternityMod.Network.Packets
+namespace EternityMod.Common.Network.Packets
 {
     public class SyncNPCAIClientSide : BaseEternityPacket
     {

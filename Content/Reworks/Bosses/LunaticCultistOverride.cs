@@ -2,7 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace EternityMod.Reworks.Bosses
+namespace EternityMod.Content.Reworks.Bosses
 {
     public class LunaticCultistOverride : GlobalNPC
     {
@@ -104,7 +104,7 @@ namespace EternityMod.Reworks.Bosses
             return false;
         }
 
-        public void Despawn(NPC npc)
+        public static void Despawn(NPC npc)
         {
             npc.velocity = Vector2.Zero;
             npc.dontTakeDamage = true;
@@ -120,7 +120,7 @@ namespace EternityMod.Reworks.Bosses
             }
         }
 
-        public void DeathAnimation(NPC npc, ref float deathTimer)
+        public static void DeathAnimation(NPC npc, ref float deathTimer)
         {
 
         }

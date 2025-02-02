@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria.Graphics.Shaders;
 
-namespace EternityMod.Graphics.Primitives
+namespace EternityMod.Core.Graphics.Primitives
 {
     /// <summary>
     /// Contains all the various options to use when creating a primitive trail. New members can be added freely without breaking existing implementations.

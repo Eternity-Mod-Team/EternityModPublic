@@ -1,5 +1,5 @@
-﻿using EternityMod.NPCs;
-using EternityMod.Players;
+﻿using EternityMod.Common.Globals.NPCs;
+using EternityMod.Common.Globals.Players;
 using Microsoft.Xna.Framework;
 using Terraria;
 

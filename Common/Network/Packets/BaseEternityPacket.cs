@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Terraria.ModLoader;
 
-namespace EternityMod.Network.Packets
+namespace EternityMod.Common.Network.Packets
 {
     public abstract class BaseEternityPacket
     {

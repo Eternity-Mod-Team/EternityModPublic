@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
-namespace EternityMod.Systems
+namespace EternityMod.Common.Systems
 {
     public class DifficultyModeSystem : ModSystem
     {

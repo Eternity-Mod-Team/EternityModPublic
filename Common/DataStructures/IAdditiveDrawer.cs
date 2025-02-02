@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 
-namespace EternityMod.DataStructures
+namespace EternityMod.Common.DataStructures
 {
     public interface IAdditiveDrawer
     {

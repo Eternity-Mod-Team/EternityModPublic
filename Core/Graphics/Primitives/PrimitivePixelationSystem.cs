@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace EternityMod.Graphics.Primitives
+namespace EternityMod.Core.Graphics.Primitives
 {
     public class PrimitivePixelationSystem : ModSystem
     {

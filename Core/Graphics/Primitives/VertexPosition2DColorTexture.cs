@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace EternityMod.Graphics.Primitives
+namespace EternityMod.Core.Graphics.Primitives
 {
     /// <summary>
     /// A custom vertex type with a position using Vector2 instead of Vector4, as Terraria is only a 2D game.

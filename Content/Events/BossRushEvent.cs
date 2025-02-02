@@ -1,6 +1,6 @@
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
-namespace EternityMod.Events
+namespace EternityMod.Content.Events
 {
     public class BossRushEvent : ModSystem
     {

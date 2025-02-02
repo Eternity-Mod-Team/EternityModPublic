@@ -1,6 +1,6 @@
 ﻿using Terraria.ModLoader;
 
-namespace EternityMod.NPCs.Bosses.Wyrmwood
+namespace EternityMod.Content.NPCs.Bosses.Wyrmwood
 {
     public class WyrmwoodHead : ModNPC
     {

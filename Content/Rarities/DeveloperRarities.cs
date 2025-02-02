@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace EternityMod.Rarities
+namespace EternityMod.Content.Rarities
 {
     public class VaemaRarity : ModRarity
     {

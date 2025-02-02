@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace EternityMod.Systems.Overriding
+namespace EternityMod.Common.Systems.Overriding
 {
     public abstract class ProjectileBehaviorOverride
     {
@@ -15,7 +15,7 @@ namespace EternityMod.Systems.Overriding
         {
             BehaviorOverrideSet = new SetFactory(ContentSamples.ProjectilesByType.Count).CreateCustomSet<ProjectileBehaviorOverride>(null);
 
-            foreach (Type type in EternityUtils.GetEveryTypeDerivedFrom(typeof(ProjectileBehaviorOverride), typeof(EternityMod).Assembly))
+            foreach (var type in EternityUtils.GetEveryTypeDerivedFrom(typeof(ProjectileBehaviorOverride), typeof(EternityMod).Assembly))
             {
                 var instance = (ProjectileBehaviorOverride)Activator.CreateInstance(type);
 

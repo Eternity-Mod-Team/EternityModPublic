@@ -1,11 +1,11 @@
 ﻿using System.IO;
-using EternityMod.Systems.Overriding;
+using EternityMod.Common.Systems.Overriding;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using static EternityMod.Network.PacketManager;
+using static EternityMod.Common.Network.PacketManager;
 
-namespace EternityMod.Network.Packets
+namespace EternityMod.Common.Network.Packets
 {
     public class ExtraNPCDataPacket : BaseEternityPacket
     {
@@ -19,7 +19,7 @@ namespace EternityMod.Network.Packets
             if (context.Length <= 0 || context[0] is not NPC npc || !npc.active)
                 return;
 
-            int totalSlotsInUse = npc.Eternity().TotalAISlotsInUse;
+            var totalSlotsInUse = npc.Eternity().TotalAISlotsInUse;
             packet.Write(npc.whoAmI);
             packet.Write(npc.realLife);
             packet.Write(totalSlotsInUse);

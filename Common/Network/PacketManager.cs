@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using EternityMod.Network.Packets;
+using EternityMod.Common.Network.Packets;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Core;
 
-namespace EternityMod.Network
+namespace EternityMod.Common.Network
 {
     public class PacketManager : ModSystem
     {
@@ -37,7 +37,7 @@ namespace EternityMod.Network
             // Assume the sender is the current client if nothing else is supplied.
             sender ??= (short)Main.myPlayer;
 
-            ModPacket wrapperPacket = EternityMod.Instance.GetPacket();
+            var wrapperPacket = EternityMod.Instance.GetPacket();
 
             // Write the identification header. This is necessary to ensure that on the receiving end the reader know how to interpret the packet.
             wrapperPacket.Write(packet.GetType().FullName);

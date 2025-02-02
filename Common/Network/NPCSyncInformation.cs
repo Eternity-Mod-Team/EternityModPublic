@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 
-namespace EternityMod.Network
+namespace EternityMod.Common.Network
 {
     // Sometimes packets may arrive a little too early (such as a few milliseconds before an NPC spawn packet creates the NPC this packet wants).
     // To account for such cases, NPC packets which cannot be properly accounted for are stored in a temporary cache until they are ready.
@@ -9,17 +9,12 @@ namespace EternityMod.Network
     public class NPCSyncInformation
     {
         public int TimeSinceReceived;
-
         public int NPCIndex = -1;
-
         public int CachedRealLife = -1;
-
         public int TotalUniqueIndicesUsed;
-
         public int TotalPlayersAtStart;
 
         public int[] ExtraAIIndicesUsed;
-
         public float[] ExtraAIValues;
 
         public Rectangle ArenaRectangle;
@@ -43,6 +38,7 @@ namespace EternityMod.Network
 
             if (CachedRealLife >= 0)
                 Main.npc[NPCIndex].realLife = CachedRealLife;
+
             for (var i = 0; i < TotalUniqueIndicesUsed; i++)
             {
                 Main.npc[NPCIndex].Eternity().HasAssociatedAIBeenUsed[ExtraAIIndicesUsed[i]] = true;

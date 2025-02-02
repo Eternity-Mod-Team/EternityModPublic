@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using EternityMod.Configs;
-using EternityMod.Graphics.Particles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -11,7 +10,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Core;
 
-namespace EternityMod.Graphics.Particles
+namespace EternityMod.Core.Graphics.Particles
 {
     public static class GeneralParticleHandler
     {

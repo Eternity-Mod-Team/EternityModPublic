@@ -7,7 +7,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace EternityMod.Systems.Overriding
+namespace EternityMod.Common.Systems.Overriding
 {
     public record NPCBehaviorOverrideContainer(NPCBehaviorOverride BehaviorOverride, bool HasPreAI, bool HasFindFrame);
 
@@ -21,7 +21,7 @@ namespace EternityMod.Systems.Overriding
         {
             BehaviorOverrideSet = new SetFactory(ContentSamples.NpcsByNetId.Count).CreateCustomSet<NPCBehaviorOverrideContainer>(null);
 
-            foreach (Type type in EternityUtils.GetEveryTypeDerivedFrom(typeof(NPCBehaviorOverride), typeof(EternityMod).Assembly))
+            foreach (var type in EternityUtils.GetEveryTypeDerivedFrom(typeof(NPCBehaviorOverride), typeof(EternityMod).Assembly))
             {
                 var instance = (NPCBehaviorOverride)Activator.CreateInstance(type);
 
@@ -50,7 +50,7 @@ namespace EternityMod.Systems.Overriding
                 if (container is null)
                     continue;
 
-                float[] phaseThresholds = container.BehaviorOverride.PhaseLifeRatioThresholds;
+                var phaseThresholds = container.BehaviorOverride.PhaseLifeRatioThresholds;
                 if (!Main.dedServ && EternityMod.Instance.PhaseIndicator != null && phaseThresholds.Length >= 1)
                 {
                     foreach (var lifeRatio in phaseThresholds)
@@ -64,7 +64,7 @@ namespace EternityMod.Systems.Overriding
         public static bool Registered(int npcID) => BehaviorOverrideSet[npcID] != null;
 
         public static bool Registered<T>() where T : ModNPC => Registered(ModContent.NPCType<T>());
-        
+
         #endregion Statics
 
         #region Abstracts and Virtuals

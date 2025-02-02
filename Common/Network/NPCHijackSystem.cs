@@ -1,11 +1,11 @@
-﻿using EternityMod.Network.Packets;
-using EternityMod.Systems.Overriding;
+﻿using EternityMod.Common.Network.Packets;
+using EternityMod.Common.Systems.Overriding;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace EternityMod.Network
+namespace EternityMod.Common.Network
 {
     public class NPCSyncHijackSystem : ModSystem
     {

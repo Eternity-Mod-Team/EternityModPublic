@@ -1,12 +1,13 @@
 ﻿using Terraria.ModLoader;
 
-namespace EternityMod.DamageClasses
+namespace EternityMod.Content.DamageClasses
 {
     public class NinjaDamageClass : DamageClass
     {
         internal static NinjaDamageClass Instance;
 
         public override void Load() => Instance = this;
+
         public override void Unload() => Instance = null;
 
         public override StatInheritanceData GetModifierInheritance(DamageClass damageClass)

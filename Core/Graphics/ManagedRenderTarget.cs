@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 
-namespace EternityMod.Graphics
+namespace EternityMod.Core.Graphics
 {
     // Code permission granted from Ozzatron (from the Calamity Mod team).
 

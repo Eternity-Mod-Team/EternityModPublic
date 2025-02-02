@@ -1,9 +1,9 @@
-﻿using EternityMod.Events;
-using EternityMod.Systems;
+﻿using EternityMod.Common.Systems;
+using EternityMod.Content.Events;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace EternityMod.Players
+namespace EternityMod.Common.Players
 {
     public partial class EternityPlayer : ModPlayer
     {

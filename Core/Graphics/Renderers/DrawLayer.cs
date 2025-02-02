@@ -1,4 +1,4 @@
-﻿namespace EternityMod.Graphics.Renderers
+﻿namespace EternityMod.Core.Graphics.Renderers
 {
     public enum DrawLayer
     {

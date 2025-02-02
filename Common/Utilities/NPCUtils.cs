@@ -1,7 +1,7 @@
 ﻿using System;
-using EternityMod.Events;
-using EternityMod.Systems;
-using EternityMod.Systems.Overriding;
+using EternityMod.Common.Systems;
+using EternityMod.Common.Systems.Overriding;
+using EternityMod.Content.Events;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

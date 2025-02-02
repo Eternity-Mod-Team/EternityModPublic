@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Graphics.Shaders;
 
-namespace EternityMod.Graphics.Primitives
+namespace EternityMod.Core.Graphics.Primitives
 {
     /// <summary>
     /// This manages rendering primitives in via the provided <see cref="RenderTrail"/> method.<br/><br/>

@@ -1,5 +1,5 @@
-﻿using EternityMod.Events;
-using EternityMod.Systems;
+﻿using EternityMod.Common.Systems;
+using EternityMod.Content.Events;
 using Microsoft.Xna.Framework;
 using System;
 using System.IO;
@@ -8,7 +8,7 @@ using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace EternityMod.NPCs.Bosses.Moomag
+namespace EternityMod.Content.NPCs.Bosses.Moomag
 {
     [AutoloadBossHead]
     public class MoomagHead : ModNPC

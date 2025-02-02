@@ -1,14 +1,14 @@
 ﻿using System.Linq;
-using EternityMod.Dusts;
-using EternityMod.NPCs.Bosses.Moomag;
-using EternityMod.NPCs.Bosses.Wyrmwood;
+using EternityMod.Content.Dusts;
+using EternityMod.Content.NPCs.Bosses.Moomag;
+using EternityMod.Content.NPCs.Bosses.Wyrmwood;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace EternityMod.NPCs
+namespace EternityMod.Common.Globals.NPCs
 {
     public partial class EternityGlobalNPC : GlobalNPC
     {
@@ -111,6 +111,7 @@ namespace EternityMod.NPCs
                     HasAssociatedAIBeenUsed[i] = true;
             }
 
+            // Debuff decrements.
             if (EtherealCurse > 0)
                 EtherealCurse--;
         }
@@ -123,9 +124,9 @@ namespace EternityMod.NPCs
         {
             if (EtherealCurse > 0)
             {
+                npc.lifeRegen -= 3;
                 if (npc.lifeRegen > 0)
                     npc.lifeRegen = 0;
-                npc.lifeRegen -= 3;
 
                 if (damage > 3)
                     damage = 3;

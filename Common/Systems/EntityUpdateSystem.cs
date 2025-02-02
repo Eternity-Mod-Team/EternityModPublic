@@ -2,7 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace EternityMod.Systems
+namespace EternityMod.Common.Systems
 {
     public class EntityUpdateSystem : ModSystem
     {

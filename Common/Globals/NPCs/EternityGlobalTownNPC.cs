@@ -1,6 +1,6 @@
 ﻿using Terraria.ModLoader;
 
-namespace EternityMod.NPCs
+namespace EternityMod.Common.Globals.NPCs
 {
     public partial class EternityGlobalNPC : GlobalNPC
     {

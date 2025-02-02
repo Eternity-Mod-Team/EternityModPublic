@@ -1,7 +1,7 @@
-﻿namespace EternityMod.Rarities
+﻿namespace EternityMod.Content.Rarities
 {
     public enum RarityEffectType
     {
-        
+
     }
 }

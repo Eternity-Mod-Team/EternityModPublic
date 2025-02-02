@@ -7,7 +7,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace EternityMod.Graphics.Renderers
+namespace EternityMod.Core.Graphics.Renderers
 {
     // Code permission granted from Ozzatron (from the Calamity Mod team).
     public class RendererManager : ModSystem

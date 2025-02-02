@@ -1,7 +1,7 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace EternityMod.ILEditing
+namespace EternityMod.Common.ILEditing
 {
     public partial class ILChanges : ModSystem
     {

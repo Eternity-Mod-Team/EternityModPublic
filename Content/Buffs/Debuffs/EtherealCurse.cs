@@ -1,7 +1,7 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace EternityMod.Buffs.Debuffs
+namespace EternityMod.Content.Buffs.Debuffs
 {
     public class EtherealCurse : ModBuff
     {

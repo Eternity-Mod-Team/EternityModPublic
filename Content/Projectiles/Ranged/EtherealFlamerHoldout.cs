@@ -4,7 +4,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace EternityMod.Projectiles.Ranged
+namespace EternityMod.Content.Projectiles.Ranged
 {
     public class EtherealFlamerHoldout : ModProjectile
     {

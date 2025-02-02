@@ -1,10 +1,11 @@
 ﻿using System.IO;
+using EternityMod.Common.Network;
+using EternityMod.Common.Systems;
+using EternityMod.Common.Systems.Overriding;
 using EternityMod.Graphics.Particles;
 using EternityMod.Graphics.Primitives;
 using EternityMod.ModSupport;
-using EternityMod.Network;
-using EternityMod.Systems;
-using EternityMod.Systems.Overriding;
+using Luminance.Core.ModCalls;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -102,9 +103,9 @@ namespace EternityMod
             WeakReferenceSupport.Setup();
         }
 
-        public override void HandlePacket(BinaryReader reader, int whoAmI) => PacketManager.ReceivePacket(reader);
+        // Use Luminance's mod call manager for cross-compatibility for other mods.
+        public override object Call(params object[] args) => ModCallManager.ProcessAllModCalls(this, args);
 
-        // This function returns an available Eternity Mod Music track, or null if the music mod is not available.
-        public int? GetMusicFromMusicMod(string songFilename) => MusicAvailable ? MusicLoader.GetMusicSlot(MusicMod, "Sounds/Music/" + songFilename) : null;
+        public override void HandlePacket(BinaryReader reader, int whoAmI) => PacketManager.ReceivePacket(reader);
     }
 }

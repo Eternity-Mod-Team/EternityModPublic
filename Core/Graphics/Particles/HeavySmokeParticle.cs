@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace EternityMod.Graphics.Particles
+namespace EternityMod.Core.Graphics.Particles
 {
     public class HeavySmokeParticle : Particle
     {

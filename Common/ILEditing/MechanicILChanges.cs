@@ -1,12 +1,12 @@
 ﻿using System;
-using EternityMod.DataStructures;
+using EternityMod.Common.DataStructures;
 using EternityMod.Graphics.Particles;
 using Microsoft.Xna.Framework.Graphics;
 using MonoMod.Cil;
 using Terraria;
 using Terraria.GameContent.Events;
 
-namespace EternityMod.ILEditing
+namespace EternityMod.Common.ILEditing
 {
     public partial class ILChanges
     {

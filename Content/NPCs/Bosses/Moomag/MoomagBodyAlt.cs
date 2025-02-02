@@ -4,7 +4,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
-namespace EternityMod.NPCs.Bosses.Moomag
+namespace EternityMod.Content.NPCs.Bosses.Moomag
 {
     public class MoomagBodyAlt : ModNPC
     {

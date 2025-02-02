@@ -2,7 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace EternityMod.Dusts
+namespace EternityMod.Content.Dusts
 {
     public class EtherealCurseDust : ModDust
     {

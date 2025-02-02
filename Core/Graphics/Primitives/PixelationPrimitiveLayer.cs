@@ -1,4 +1,4 @@
-﻿namespace EternityMod.Graphics.Primitives
+﻿namespace EternityMod.Core.Graphics.Primitives
 {
     /// <summary>
     /// Controls what layer the <see cref="IPixelatedPrimitiveRenderer.RenderPixelatedPrimitives"/> renders to.

@@ -1,6 +1,6 @@
 ﻿using Terraria.ModLoader;
 
-namespace EternityMod.Players
+namespace EternityMod.Common.Globals.Players
 {
     public partial class EternityPlayer : ModPlayer
     {

@@ -1,6 +1,6 @@
 ﻿using MonoMod.Cil;
 
-namespace EternityMod.ILEditing
+namespace EternityMod.Common.ILEditing
 {
     public partial class ILChanges
     {
